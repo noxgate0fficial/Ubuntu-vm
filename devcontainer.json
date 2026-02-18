@@ -1,0 +1,14 @@
+{
+  "name": "Webtop Environment",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Webtop UI",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postAttachCommand": "docker run -d --rm --name=webtop -e PASSWORD=Thisiswilliamubuntupassw -e AUTO_LOGIN=false -p 3000:3000 --shm-size='15gb' lscr.io/linuxserver/webtop:ubuntu-xfce"
+}
